@@ -17,7 +17,7 @@
         app:layout_constraintBottom_toBottomOf="@id/barrier"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@sample/post_avatars"/>
+        tools:srcCompat="@sample/post_avatars" />
 
     <TextView
         android:id="@+id/author"
@@ -41,10 +41,10 @@
         android:layout_marginStart="@dimen/offset"
         android:layout_marginEnd="@dimen/offset"
         android:layout_marginBottom="@dimen/offset"
-        app:layout_constraintStart_toEndOf="@+id/avatar"
-        app:layout_constraintTop_toBottomOf="@+id/author"
         app:layout_constraintBottom_toBottomOf="@id/barrier"
         app:layout_constraintEnd_toStartOf="@id/menu"
+        app:layout_constraintStart_toEndOf="@+id/avatar"
+        app:layout_constraintTop_toBottomOf="@+id/author"
         tools:text="@sample/posts.json/data/published" />
 
     <ImageButton
@@ -72,17 +72,17 @@
         android:layout_marginTop="@dimen/offset"
         android:layout_marginBottom="@dimen/offset"
         android:autoLink="web"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_barrier"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/barrier"
-        app:layout_constraintBottom_toBottomOf="@id/bottom_barrier"
         tools:text="@sample/posts.json/data/content" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/bottom_barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="bottom"/>
+        app:barrierDirection="bottom" />
 
     <ImageButton
         android:id="@+id/like"
@@ -110,7 +110,7 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/offset_2"
@@ -148,11 +148,10 @@
         android:id="@+id/view_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/offset"
         android:text="@string/views"
         android:textSize="16sp"
-        android:layout_marginTop="@dimen/offset"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bottom_barrier"
-        />
+        app:layout_constraintTop_toBottomOf="@id/bottom_barrier" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
