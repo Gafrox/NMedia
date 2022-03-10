@@ -7,4 +7,12 @@
     <string name="description_like">Мне нравится</string>
     <string name="description_share">Поделиться</string>
     <string name="description_view">Просмотры</string>
+    <string name="remove">Удалить</string>
+    <string name="post_text">Введите текст</string>
+    <string name="description_post_like">Сохранить</string>
+    <string name="error_empty_content">Текст не может быть пустым</string>
+    <string name="edit">Редактировать</string>
+    <string name="cancel_edit">Отменить редактирование</string>
+    <string name="edit_image">Редактировать изображение</string>
+    <string name="edit_text">Редактировать запись</string>
 </resources>
