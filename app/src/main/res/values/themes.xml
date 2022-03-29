@@ -13,4 +13,28 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="LikeButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:checkable">true</item>
+        <item name="iconTint">@color/like_color_selector</item>
+        <item name="icon">@drawable/like_selector</item>
+    </style>
+
+    <style name="ShareButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="iconTint">@color/share_color_selector</item>
+        <item name="icon">@drawable/ic_baseline_share_24</item>
+        <item name="android:textColor">?attr/colorControlNormal</item>
+    </style>
+
+    <style name="ViewButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="iconTint">@color/share_color_selector</item>
+        <item name="icon">@drawable/ic_baseline_remove_red_eye_24</item>
+        <item name="android:textColor">?attr/colorControlNormal</item>
+    </style>
+
+    <style name="MenuButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="iconTint">@color/share_color_selector</item>
+        <item name="icon">@drawable/ic_baseline_more_vert_24</item>
+    </style>
+
 </resources>
