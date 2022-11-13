@@ -4,6 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import ru.netology.nmedia.dto.Post
 
+interface PostRepository {
+    fun get(): LiveData<List<Post>>
+    fun likeById(id: Long)
+    fun shareById(id: Long)
+    fun deleteById(id: Long)
+    fun save(post: Post)
+}
+
 class PostRepositoryInMemoryImpl : PostRepository {
     private val currentAuthor = "Netology"
     private val currentTime = "Now"
@@ -17,7 +25,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likes = 999,
             shares = 1_099_998,
-            views = 439
+            views = 439,
+            video = "https://youtu.be/EQ_btxhpRzU"
         )
     }
     private val data = MutableLiveData(posts)
@@ -49,7 +58,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
         data.value = posts
     }
 
-    override fun removeById(id: Long) {
+    override fun deleteById(id: Long) {
         posts = posts.filter { it.id != id }
         data.value = posts
     }

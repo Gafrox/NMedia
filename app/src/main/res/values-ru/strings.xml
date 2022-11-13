@@ -15,4 +15,10 @@
     <string name="cancel_edit">Отменить редактирование</string>
     <string name="edit_image">Редактировать изображение</string>
     <string name="edit_text">Редактировать запись</string>
+    <string name="description_post_save">Сохранить</string>
+    <string name="add_post">Добавить пост</string>
+    <string name="chooser_share_post">Поделиться записью</string>
+    <string name="description_post_video">Видео превью</string>
+    <string name="description_post_play">Запуск видео</string>
+    <string name="text_present">Напишите что-нибудь...</string>
 </resources>

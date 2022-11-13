@@ -9,7 +9,7 @@
     <string name="like" translatable="false">999</string>
     <string name="description_share">Share</string>
     <string name="description_view">Views</string>
-    <string name="remove">Remove</string>
+    <string name="remove">Delete</string>
     <string name="post_text">Enter text</string>
     <string name="description_post_like">Save</string>
     <string name="error_empty_content">Content can\'t be empty</string>
@@ -17,4 +17,11 @@
     <string name="cancel_edit">Cancel edit</string>
     <string name="edit_image">Edit image</string>
     <string name="edit_text">Edit post</string>
+    <string name="chooser_share_post">Share post</string>
+    <string name="description_post_save">Save</string>
+    <string name="add_post">Add post</string>
+    <string name="description_post_video">Post video preview</string>
+    <string name="description_post_play">Play video</string>
+    <string name="text_present">Input text..</string>
+    />
 </resources>

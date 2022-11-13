@@ -72,7 +72,7 @@
         android:layout_marginTop="@dimen/offset"
         android:layout_marginBottom="@dimen/offset"
         android:autoLink="web"
-        app:layout_constraintBottom_toBottomOf="@id/bottom_barrier"
+        app:layout_constraintBottom_toTopOf="@id/video"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/barrier"
@@ -110,5 +110,32 @@
         android:contentDescription="@string/description_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bottom_barrier" />
+
+
+    <FrameLayout
+        android:id="@+id/video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/offset"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/bottom_barrier"
+        app:layout_constraintTop_toBottomOf="@id/inputText">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/description_post_video"
+            android:src="@drawable/video_preview"
+            android:visibility="visible" />
+
+        <ImageView
+            android:layout_width="@dimen/play_video_size"
+            android:layout_height="@dimen/play_video_size"
+            android:contentDescription="@string/description_post_play"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_play_video_24" />
+    </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
