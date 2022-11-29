@@ -10,6 +10,7 @@ interface PostRepository {
     fun shareById(id: Long)
     fun deleteById(id: Long)
     fun save(post: Post)
+    fun getPostById(id: Long): Post?
 }
 
 class PostRepositoryInMemoryImpl : PostRepository {
@@ -80,4 +81,6 @@ class PostRepositoryInMemoryImpl : PostRepository {
         }
         data.value = posts
     }
+
+    override fun getPostById(id: Long) = data.value?.find { it.id == id }
 }

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
+import ru.netology.nmedia.util.Counter
 
 interface OnInteractionListener {
     fun onLike(post: Post)
@@ -18,13 +19,13 @@ interface OnInteractionListener {
     fun onEdit(post: Post)
     fun onCancelEdit(post: Post)
     fun onPlayVideo(post: Post)
+    fun onToPost(post: Post)
 }
 
 class PostAdapter(
     private val onInteractionListener: OnInteractionListener
 ) :
     ListAdapter<Post, PostViewHolder>(PostDiffCallback()) {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         val binding = CardPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PostViewHolder(binding, onInteractionListener)
@@ -36,25 +37,22 @@ class PostAdapter(
     }
 }
 
-
 class PostViewHolder(
     private val binding: CardPostBinding,
     private val onInteractionListener: OnInteractionListener
 ) : RecyclerView.ViewHolder(binding.root) {
-
     fun bind(post: Post) {
         binding.apply {
             author.text = post.author
             published.text = post.published
             inputText.text = post.content
-            share.text = counter(post.shares)
-            view.text = counter(post.views)
+            share.text = Counter.toCount(post.shares)
+            view.text = Counter.toCount(post.views)
             like.isChecked = post.likedByMe
-            like.text = counter(post.likes)
+            like.text = Counter.toCount(post.likes)
             if (!post.video.isNullOrBlank()) {
                 video.visibility = View.VISIBLE
             } else video.visibility = View.GONE
-
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.options_post)
@@ -73,7 +71,6 @@ class PostViewHolder(
                     }
                 }.show()
             }
-
             like.setOnClickListener {
                 onInteractionListener.onLike(post)
             }
@@ -83,16 +80,10 @@ class PostViewHolder(
             video.setOnClickListener {
                 onInteractionListener.onPlayVideo(post)
             }
+            inputText.setOnClickListener {
+                onInteractionListener.onToPost(post)
+            }
         }
-    }
-
-    private fun counter(count: Int): String {
-        return when {
-            (count >= 1_000_000) -> if (count % 1_000_000 > 99_999) "${"%.1f".format(count / 1_000_000.toDouble())}M" else "${count / 1_000_000}M"
-            (count in 1000..9_999) -> if (count % 1_000 > 99) "${"%.1f".format(count / 1_000.toDouble())}K" else "${count / 1_000}K"
-            (count in 10_000..999_999) -> "${count / 1_000}K"
-            else -> count
-        }.toString()
     }
 }
 

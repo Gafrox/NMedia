@@ -10,21 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NMedia">
         <activity
-            android:name=".activity.PostContentActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".activity.IntentHandlerActivity"
-            android:exported="false">
+            android:name=".activity.AppActivity"
+            android:exported="true"
+            android:windowSoftInputMode="stateVisible|adjustResize">
+            <nav-graph android:value="@navigation/nav_main" />
+
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.MainActivity"
-            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

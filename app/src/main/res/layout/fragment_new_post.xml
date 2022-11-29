@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.PostContentActivity">
+    tools:context=".activity.NewPostFragment">
 
-    <EditText
-        android:id="@+id/editPost"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="80dp"
         android:background="@android:color/transparent"
         android:gravity="start|top"
         android:hint="@string/text_present"
+        android:importantForAutofill="no"
         android:inputType="textMultiLine"
         android:padding="@dimen/offset"
-        android:importantForAutofill="no" />
+        android:textColorHint="#757575" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
@@ -31,5 +33,4 @@
         android:contentDescription="@string/description_post_save"
         app:layout_anchor="@id/bottomAppBar"
         app:srcCompat="@drawable/ic_ok_24dp" />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

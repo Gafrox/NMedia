@@ -20,7 +20,7 @@ class PostRepositoryFileImpl(
         Post(
             id = nextId++,
             author = "Нетология. Университет интернет-профессий будущего",
-            content = "ID:${nextId.dec()} Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия — помочь встать на путь роста и начать цепочку перемен → http://netolo.gy/fyb",
+            content = "ID:${nextId.dec()} Привет, это новая Нетология! Наша миссия — помочь встать на путь роста и начать цепочку перемен → http://netolo.gy/fyb",
             published = "21 мая в 18:36",
             likedByMe = false,
             likes = 999,
@@ -76,8 +76,8 @@ class PostRepositoryFileImpl(
     }
 
     override fun save(post: Post) {
-        if (post.id == 0L) {
-            posts = listOf(
+        posts = if (post.id == 0L) {
+            listOf(
                 post.copy(
                     id = nextId++,
                     author = currentAuthor,
@@ -85,16 +85,16 @@ class PostRepositoryFileImpl(
                     published = currentTime
                 )
             ) + posts
-            data.value = posts
-            sync()
-        }
-
-        posts = posts.map {
-            if (it.id != post.id) it else it.copy(content = post.content)
+        } else {
+            posts.map {
+                if (it.id != post.id) it else it.copy(content = post.content)
+            }
         }
         data.value = posts
         sync()
     }
+
+    override fun getPostById(id: Long) = data.value?.find { it.id == id }
 
     private fun sync() {
         context.openFileOutput(filename, Context.MODE_PRIVATE).bufferedWriter().use {

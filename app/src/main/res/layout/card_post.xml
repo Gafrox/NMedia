@@ -111,7 +111,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bottom_barrier" />
 
-
     <FrameLayout
         android:id="@+id/video"
         android:layout_width="match_parent"
@@ -132,10 +131,8 @@
         <ImageView
             android:layout_width="@dimen/play_video_size"
             android:layout_height="@dimen/play_video_size"
-            android:contentDescription="@string/description_post_play"
             android:layout_gravity="center"
+            android:contentDescription="@string/description_post_play"
             android:src="@drawable/ic_baseline_play_video_24" />
     </FrameLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

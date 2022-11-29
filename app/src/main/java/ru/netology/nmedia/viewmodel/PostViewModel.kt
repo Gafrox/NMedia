@@ -18,7 +18,7 @@ private val empty = Post(
 class PostViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: PostRepository = PostRepositoryFileImpl(application)
     val data = repository.get()
-    val edited = MutableLiveData(empty) //<Post?>(null)
+    private val edited = MutableLiveData(empty) //<Post?>(null)
 
     fun editPost(content: String) {
         val text = content.trim()
@@ -42,4 +42,5 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     fun likeById(id: Long) = repository.likeById(id)
     fun shareById(id: Long) = repository.shareById(id)
     fun deleteById(id: Long) = repository.deleteById(id)
+    fun getPostById(id: Long) = repository.getPostById(id) ?: empty.copy()
 }
