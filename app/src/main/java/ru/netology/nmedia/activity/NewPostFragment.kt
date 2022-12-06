@@ -1,6 +1,8 @@
 package ru.netology.nmedia.activity
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,7 +30,8 @@ class NewPostFragment : Fragment() {
     ): View {
         val binding = FragmentNewPostBinding.inflate(inflater, container, false)
         arguments?.textArg?.let(binding.editText::setText)
-        binding.editText.focusAndShowKeyboard()
+        binding.editText.requestFocus()
+        Handler(Looper.getMainLooper()).postDelayed({ binding.editText.focusAndShowKeyboard() }, 10)
         binding.OK.setOnClickListener {
             val content = binding.editText.text.toString()
             if (content.isNotBlank()) {
@@ -42,11 +45,5 @@ class NewPostFragment : Fragment() {
             findNavController().navigateUp()
         }
         return binding.root
-    }
-
-    override fun onResume() {
-        val binding = FragmentNewPostBinding.inflate(layoutInflater)
-        AndroidUtils.showKeyboard(binding.editText)
-        super.onResume()
     }
 }
