@@ -4,15 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import ru.netology.nmedia.dto.Post
 
-interface PostRepository {
-    fun get(): LiveData<List<Post>>
-    fun likeById(id: Long)
-    fun shareById(id: Long)
-    fun deleteById(id: Long)
-    fun save(post: Post)
-    fun getPostById(id: Long): Post?
-}
-
 class PostRepositoryInMemoryImpl : PostRepository {
     private val currentAuthor = "Netology"
     private val currentTime = "Now"
@@ -82,5 +73,5 @@ class PostRepositoryInMemoryImpl : PostRepository {
         data.value = posts
     }
 
-    override fun getPostById(id: Long) = data.value?.find { it.id == id }
+//    override fun getPostById(id: Long) = data.value?.find { it.id == id }
 }

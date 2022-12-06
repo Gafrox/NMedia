@@ -94,7 +94,7 @@ class PostRepositoryFileImpl(
         sync()
     }
 
-    override fun getPostById(id: Long) = data.value?.find { it.id == id }
+//    override fun getPostById(id: Long) = data.value?.find { it.id == id }
 
     private fun sync() {
         context.openFileOutput(filename, Context.MODE_PRIVATE).bufferedWriter().use {

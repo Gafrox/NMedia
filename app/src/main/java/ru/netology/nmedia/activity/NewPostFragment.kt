@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.FragmentNewPostBinding
 import ru.netology.nmedia.util.AndroidUtils
+import ru.netology.nmedia.util.AndroidUtils.focusAndShowKeyboard
 import ru.netology.nmedia.util.StringArg
 import ru.netology.nmedia.viewmodel.PostViewModel
 
@@ -23,12 +24,11 @@ class NewPostFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         val binding = FragmentNewPostBinding.inflate(inflater, container, false)
         arguments?.textArg?.let(binding.editText::setText)
-        binding.editText.requestFocus()
-        AndroidUtils.showKeyboard(binding.editText)
+        binding.editText.focusAndShowKeyboard()
         binding.OK.setOnClickListener {
             val content = binding.editText.text.toString()
             if (content.isNotBlank()) {
@@ -42,5 +42,11 @@ class NewPostFragment : Fragment() {
             findNavController().navigateUp()
         }
         return binding.root
+    }
+
+    override fun onResume() {
+        val binding = FragmentNewPostBinding.inflate(layoutInflater)
+        AndroidUtils.showKeyboard(binding.editText)
+        super.onResume()
     }
 }
