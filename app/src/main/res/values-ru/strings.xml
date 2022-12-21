@@ -20,5 +20,12 @@
     <string name="chooser_share_post">Поделиться записью</string>
     <string name="description_post_video">Видео превью</string>
     <string name="description_post_play">Запуск видео</string>
-    <string name="text_present">Напишите что-нибудь...</string>
+    <string name="text_present">Напишите что-нибудь…</string>
+    <string name="google_play_unavailable">Google Api Недоступно</string>
+    <string name="notification_user_liked">%1$s поставил лайк посту %2$s</string>
+    <string name="notification_user_new_posted">%1$s опубликовал новый пост</string>
+    <string name="error_notification_title">Вы используете старую версию приложения</string>
+    <string name="error_notification_text">Пожалуйста, обновите приложение для корректной работы</string>
+    <string name="channel_remote_name">Уведомления с сервера</string>
+    <string name="channel_remote_description">Уведомления с удалённого сервера</string>
 </resources>

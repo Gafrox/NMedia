@@ -73,6 +73,7 @@ class FeedFragment : Fragment() {
                     Bundle().apply { textId = post.id.toString() })
             }
         })
+
         binding.posts.adapter = adapter
         viewModel.data.observe(viewLifecycleOwner) { posts ->
             val newPost = adapter.itemCount < posts.size
